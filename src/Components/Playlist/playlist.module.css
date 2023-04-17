@@ -1,0 +1,10 @@
+.playlistCard:hover .playlistCardImg{
+    background-color: red;
+    width: 75%;
+    
+}
+
+.playlistCard:hover{
+    cursor: pointer;
+    background-color: #252121 ;
+}

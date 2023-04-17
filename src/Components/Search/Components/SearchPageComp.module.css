@@ -1,0 +1,26 @@
+.SpotifyPlaylist{
+    padding: 15px 40px 10px 40px ;
+    /* height: 100vh; */
+    background-color: #121212;
+    /* margin-top: 45px; */
+    bottom: 0;
+   
+}
+.SpotifyPlaylist h2{
+    color:#ffffff;
+    font-size: 22px;
+    margin-bottom: 20px;
+    margin-top: -5px;
+   
+}
+.listContainer{
+    /* gap: 20px; */
+  overflow: hidden;
+  bottom: 0;
+  justify-content: space-between;
+}
+.SearchlistContainer{
+    overflow: hidden;
+  bottom: 0;
+  justify-content: space-between;
+}

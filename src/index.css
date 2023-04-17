@@ -1,0 +1,51 @@
+body {
+  font-family: “Circular Std”, sans-serif;
+}
+
+.rhap_container{
+  background-image: linear-gradient(to left, #130a2c, #090612) !important;
+  width: '90%L'
+}
+
+.rhap_container svg {
+  color: white;
+}
+
+.rhap_time{
+  color: white !important;
+  position: relative;
+    left: 16%;
+}
+
+.rhap_footer{
+  color: white !important;
+}
+
+.rhap_progress-bar{
+  width: 40% !important;
+  height:4px !important;
+  margin: auto !important;
+}
+
+.rhap_progress-filled{
+  background-color: #01f659 !important;
+}
+
+.rhap_progress-indicator{
+  background-color: white !important;
+}
+
+
+.rhap_progress-section {
+  width: 85% !important;
+    position: relative !important;
+    left: -8% !important;
+    margin: auto !important;
+
+}
+
+/* white bar  */
+.rhap_progress-container{
+  position: relative;
+  left: -5%;
+}

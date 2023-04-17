@@ -1,0 +1,44 @@
+.navbarContainer{
+    color:#b3b3b3;
+    background-color:#000000;
+    z-index:2
+}
+.navButtons{
+    color:#b3b3b3;
+    font-weight :bold;
+    font-size :14px;
+    letter-spacing: 1px;
+}
+.navButtons:hover, .navButtons:active, .navButtons:focus{
+    color : #ffffff;
+    font-size: 15px;
+} 
+
+.navButtons:hover{
+   background-color: #282828;
+    transition: 500ms linear; 
+    transform: scale(1.1);
+}
+
+.login{
+    background-color:#ffffff;
+    font-size: 16px;
+    color:#000000;
+    margin: 0 8px;
+}
+.login:hover, .login:active,.login:focus{
+    color:#ffffff;
+    font-size: 15px;
+}
+.login:hover{
+    background-color: #f2f2f2;
+    color:#000000;
+     transition: 500ms linear; 
+     transform: scale(1.1);
+ }
+
+ .image:hover{
+    size:30px;
+    transition: 500ms linear; 
+     transform: scale(1.1);
+ }

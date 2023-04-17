@@ -1,0 +1,11 @@
+.homeContainer{
+    font-family: “Circular Std”, sans-serif; 
+    font-weight:600;
+    background-color:black,
+    /* background-color: #101010; */
+    /* height: 100vh; */
+}
+.divider{
+    position: fixed;
+    bottom: 120px;
+}

@@ -1,0 +1,34 @@
+.sideBarLogo {
+    margin: "auto";
+    width: "130px";
+    /* display:'none' */
+}
+
+.sideBox{
+    font-family: “Circular Std”, sans-serif; 
+    font-weight:600;
+    font-size: 14px;
+}
+
+.hoverText p, .hoverText img, .hoverText svg{
+    color: #b3b3b3;
+    /* opacity: .7; */
+    cursor: pointer;
+}
+
+
+ .hoverText:hover p,.hoverText:hover img,.hoverText:hover svg {
+    color: #ffffff;
+    font-size: 15px;
+    transition: 500ms linear; 
+    transform: scale(1.1);
+}
+.hoverText:active p, .hoverText:active img , .hoverText:active svg{
+    color:#ffffff;
+    font-size: 15px;
+    
+}
+.hoverText:focus p, .hoverText:focus img , .hoverText:focus svg{
+    color:#ffffff;
+    font-size: 15px;
+}

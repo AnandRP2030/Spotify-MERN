@@ -1,0 +1,22 @@
+.rainbow{
+    background-color: #343A40 !important;
+    border-radius: 4px;  
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 16px;
+    
+  }
+  
+  
+  .rainbow-3:hover{
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, red);
+    animation:slidebg 2s linear infinite;
+  }
+  
+
+
+  @keyframes slidebg {
+    to {
+      background-position:20vw;
+    }
+  }

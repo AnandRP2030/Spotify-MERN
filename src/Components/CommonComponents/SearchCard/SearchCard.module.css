@@ -1,0 +1,49 @@
+
+.cardContainer{
+    /* min-width: 160px; */
+    /* width: 180px; */
+    padding: 15px;
+    margin: 10px 5px;
+    background-color: #181818;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all ease 0.4s;
+    overflow: hidden;
+
+}
+.cardContainer:hover{
+    /* background-color:#252525; */
+    transition: 500ms linear; 
+     transform: scale(1.1);
+     /* border-radius: 7px; */
+    
+}
+.cardContainer:hover .playButton{
+  opacity: 1;
+  transition: all ease 0.7s;
+}
+.cardContainer img{
+    width: 79%;
+    margin-top: 30%;
+    margin-left: 40%;
+    overflow: hidden;
+    /* opacity: .7; */
+    -webkit-transform: rotate(20deg);
+   -moz-transform: rotate(20deg);
+    -ms-transform: rotate(20deg);
+     -o-transform: rotate(20deg);
+        transform: rotate(20deg);
+    border-radius:6px;
+    margin-bottom: 10px;
+}
+
+.playButtonDiv{
+    position: relative;
+}
+
+  .songDesc{
+    color: #989898;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 600;
+  }

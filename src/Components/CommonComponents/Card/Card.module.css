@@ -1,0 +1,39 @@
+
+.cardContainer{
+    /* min-width: 160px; */
+    /* width: 180px; */
+    padding: 15px;
+    margin: 10px 5px;
+    background-color: #181818;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all ease 0.4s;
+
+}
+.cardContainer:hover{
+    background-color:#252525;
+    transition: 500ms linear; 
+     transform: scale(1.1);
+     /* border-radius: 7px; */
+    
+}
+.cardContainer:hover .playButton{
+  opacity: 1;
+  transition: all ease 0.7s;
+}
+.cardContainer img{
+    width: 100%;
+    border-radius:6px;
+    margin-bottom: 10px;
+}
+
+.playButtonDiv{
+    position: relative;
+}
+
+  .songDesc{
+    color: #989898;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 600;
+  }
