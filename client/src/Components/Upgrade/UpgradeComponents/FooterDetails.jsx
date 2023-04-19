@@ -4,22 +4,23 @@ import { Box, Text, Link } from "@chakra-ui/react";
 const FooterDetails = ({ ele }) => {
 	return (
 		<Box>
-			{Object.keys(ele).map((key) => {
+			{Object.keys(ele).map((a, i) => {
 				{
-					if (key === "title") {
+					if (alert === "title") {
 						return (
-							<Text  fontWeight="bold" color="gray">
-								{ele[key]}
+							<Text key={i} fontWeight="bold" color="gray">
+								{ele[a]}
 							</Text>
 						);
 					} else {
 						return (
 							<Box
+								key={i}
 								my="20px"
 								fontSize="16px"
 								_hover={{ color: "#1ED760" }}
 							>
-								<Link decoration="none">{ele[key]}</Link>
+								<Link decoration="none">{ele[a]}</Link>
 							</Box>
 						);
 					}
