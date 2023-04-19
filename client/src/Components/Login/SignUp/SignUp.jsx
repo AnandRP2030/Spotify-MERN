@@ -9,12 +9,14 @@ import {
   FormLabel,
   Icon,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router";
 import { VStack, FormControl, Input, Spacer, Text } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 import { RxGithubLogo } from "react-icons/rx";
 import { useState, useEffect } from "react";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const formStyle = {
     boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px",
   };
@@ -78,10 +80,10 @@ const Signup = () => {
                 w="120px"
                 src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png"
                 alt="logo"
-                mb='20px'
+                mb="20px"
               />
             </Center>
-            <Text fontSize="3xl" as="b" >
+            <Text fontSize="3xl" as="b">
               {" "}
               Get Started
             </Text>
@@ -93,15 +95,23 @@ const Signup = () => {
               </Link>
             </Text>
             <VStack w="100%" mt="20px" p={1}>
-              <Button
+              <Link
+                color="teal.500"
+                href="http://localhost:3000/auth/google"
                 w="100%"
                 bg="white"
-                style={btnStyle}
-                className="signUpbtn"
               >
-                <Icon as={FcGoogle} fontSize="2xl" mr="10px" /> Sign up with
-                Google
-              </Button>
+                <Button
+                  w="100%"
+                  bg="white"
+                  className="signUpbtn"
+                  style={btnStyle}
+                >
+                  <Icon as={FcGoogle} fontSize="2xl" mr="10px" /> Sign up with
+                  Google
+                </Button>
+              </Link>
+
               <Spacer />
               <Button
                 w="100%"
@@ -156,18 +166,18 @@ const Signup = () => {
               {" "}
               Forget Password ?
             </Link> */}
-           
+
             <Button
               bg="#1ed760"
-              color='white'
+              color="white"
               style={btnStyle}
               w="100%"
               mt="50px"
               type="submit"
-              _hover={{bg: 'red'}}
+              _hover={{ bg: "red" }}
             >
               {" "}
-                GET STARTED {" "}
+              GET STARTED{" "}
             </Button>
           </FormControl>
         </Box>
