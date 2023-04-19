@@ -8,7 +8,7 @@ const FooterDetails = ({ ele }) => {
 				{
 					if (key === "title") {
 						return (
-							<Text fontWeight="bold" color="gray">
+							<Text  fontWeight="bold" color="gray">
 								{ele[key]}
 							</Text>
 						);

@@ -39,20 +39,15 @@ const Footer = () => {
 				direction={{ base: "column", lg: "row" }}
 				gap={12}
 			>
-				<Box>
-					<Image
-						src={require("./logo.jpg")}
-						w={{ base: "90px", lg: "130px" }}
-					/>
-				</Box>
+				
 
 				<Flex
 					flex="3"
 					gap={12}
 					direction={{ base: "column", md: "row" }}
 				>
-					{details.map((ele) => {
-						return <FooterDetails ele={ele} />;
+					{details.map((ele, idx) => {
+						return <FooterDetails key={idx} ele={ele} />;
 					})}
 				</Flex>
 				<FooterIcon />

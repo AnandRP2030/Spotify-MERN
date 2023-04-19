@@ -40,9 +40,9 @@ const PowerSection = () => {
 				maxW="container.xl"
 				m={{ base: "0", md: "auto" }}
 			>
-				{cards.map(({ img, text1, text2 }) => {
+				{cards.map(({ img, text1, text2 }, idx) => {
 					return (
-						<PowerSecCard img={img} text1={text1} text2={text2} />
+						<PowerSecCard key={idx} img={img} text1={text1} text2={text2} />
 					);
 				})}
 			</SimpleGrid>

@@ -22,7 +22,7 @@ const PricingCard = () => {
 				align={{ base: "center", xl: "normal" }}
 			>
 				{plans.map((ele, i) => {
-					return <PlansData ele={ele}  index={i}/>;
+					return <PlansData key={i} ele={ele}  index={i}/>;
 				})}
 			</Flex>
 		</Box>

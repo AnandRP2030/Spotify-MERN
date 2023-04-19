@@ -36,10 +36,7 @@ function Navbar() {
         justify="space-between"
       >
         <Box>
-          <Image
-            src={require("./logo.jpg")}
-            w={{ base: "90px", lg: "130px" }}
-          />
+          
         </Box>
 
         <Box w="50%" ml="5%">
@@ -103,12 +100,7 @@ function Navbar() {
 
               <DrawerFooter>
                 <Box>
-                  <Image
-                    src={require("./logo.jpg")}
-                    w="100px"
-                    mr="345px"
-                    mb="40px"
-                  />
+                 
                 </Box>
               </DrawerFooter>
             </DrawerContent>
