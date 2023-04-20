@@ -39,7 +39,6 @@ function App() {
           <Route path="/playlistDetails" element={<PlaylistDetails/>}/>
           <Route path="/NotPremium" element={<NotPremium/>}/>
           
-
           <Route
             path="/payment"
             element={

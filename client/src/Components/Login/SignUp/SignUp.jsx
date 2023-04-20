@@ -1,3 +1,4 @@
+
 import "./signup.css";
 import {
   Box,
@@ -15,6 +16,7 @@ import { FcGoogle } from "react-icons/fc";
 import { RxGithubLogo } from "react-icons/rx";
 import { useState, useEffect } from "react";
 import Cookies from 'js-cookie';
+
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -54,7 +56,6 @@ const Signup = () => {
     }
     setRealImg({ img: formImages[helper], count: helper + 1 });
   };
-
   useEffect(() => {
     let intervalId = setInterval(changeImg, 6000);
 
@@ -62,6 +63,10 @@ const Signup = () => {
       clearInterval(intervalId);
     };
   }, []);
+
+
+  const AUTH_GOOGLE = 'http://localhost:3000/auth/google';
+
 
   return (
     <Center>
@@ -98,7 +103,7 @@ const Signup = () => {
             <VStack w="100%" mt="20px" p={1}>
               <Link
                 color="teal.500"
-                href="http://localhost:3000/auth/google"
+                href={AUTH_GOOGLE}
                 w="100%"
                 bg="white"
               >
