@@ -42,8 +42,12 @@ export const CreditCard = () => {
     e.preventDefault();
 
     setTimeout(() => {
-      navigate("/paymentotp");
-    }, 3000);
+      navigate("/paymentsuccess");
+    }, 2000);
+
+    setTimeout(() => {
+      navigate("/");
+    }, 7000);
   };
 
   const handleChange = (e) => {

@@ -8,6 +8,7 @@ import Preview from "./HomeComponents/Preview";
 import SpotifyPlaylist from "./HomeComponents/SpotifyPlaylist";
 import SuggestedArtists from './HomeComponents/SuggestedArtists';
 import styles from "./home.module.css";
+import { useEffect } from "react";
 
 const Home = () => {
   const [playSong, setPlaySong] = useState({
@@ -18,6 +19,26 @@ const Home = () => {
     singer: "",
   });
  
+  // const getData = async () => {
+  //   try{
+  //     let res = await fetch('http://localhost:3000/googleRedirect');
+  //     let data = await res.json();
+  //     // console.log(data);
+  //     return data;
+  //   }catch(err) {
+  //       console.log('err on navbar getdata', err)
+  //   }
+  // }
+
+  // const fetchData = async () => {
+  //   let x = await getData();
+  //   console.log(x)
+  // }
+  // useEffect( () => {
+
+  //   fetchData()
+  // },[])
+
   return (
     <>
     <AnimatedPages>

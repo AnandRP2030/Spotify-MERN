@@ -78,10 +78,10 @@ const Login = () => {
                 w="120px"
                 src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png"
                 alt="logo"
-                mb='20px'
+                mb="20px"
               />
             </Center>
-            <Text fontSize="3xl" as="b" >
+            <Text fontSize="3xl" as="b">
               {" "}
               Welcome Back
             </Text>
@@ -93,15 +93,22 @@ const Login = () => {
               </Link>
             </Text>
             <VStack w="100%" mt="20px" p={1}>
-              <Button
+              <Link
+                color="teal.500"
+                href="http://localhost:3000/auth/google"
                 w="100%"
                 bg="white"
-                style={btnStyle}
-                className="signUpbtn"
               >
-                <Icon as={FcGoogle} fontSize="2xl" mr="10px" /> Log in with
-                Google
-              </Button>
+                <Button
+                  w="100%"
+                  bg="white"
+                  style={btnStyle}
+                  className="signUpbtn"
+                >
+                  <Icon as={FcGoogle} fontSize="2xl" mr="10px" /> Log in with
+                  Google
+                </Button>
+              </Link>
               <Spacer />
               <Button
                 w="100%"
@@ -132,8 +139,6 @@ const Login = () => {
             <hr style={{ borderColor: "#ded1d1" }} />
           </Box>
           <FormControl h="auto" mt="20px">
-          
-            
             <Input
               style={userInputStyle}
               type="email"
@@ -154,12 +159,12 @@ const Login = () => {
             <br />
             <Button
               bg="black"
-              color='white'
+              color="white"
               style={btnStyle}
               w="100%"
               mt="50px"
               type="submit"
-              _hover={{bg: '#1ed760'}}
+              _hover={{ bg: "#1ed760" }}
             >
               {" "}
               Log in{" "}

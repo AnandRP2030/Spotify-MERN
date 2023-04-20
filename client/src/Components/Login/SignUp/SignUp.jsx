@@ -14,6 +14,7 @@ import { VStack, FormControl, Input, Spacer, Text } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 import { RxGithubLogo } from "react-icons/rx";
 import { useState, useEffect } from "react";
+import Cookies from 'js-cookie';
 
 const Signup = () => {
   const navigate = useNavigate();

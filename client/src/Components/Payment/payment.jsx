@@ -211,7 +211,8 @@ export const Payment = () => {
             <Flex direction="column" mt="20px" align="center" gap={3}>
               <Box>
                 <Image
-                  src={require("../Upgrade/UpgradeComponents/logo.jpg")}
+                  // src={require("../Upgrade/UpgradeComponents/logo.jpg")}
+                  alt="img"
                   w="190px"
                 />
               </Box>

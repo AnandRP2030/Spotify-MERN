@@ -54,7 +54,7 @@ export function PaymentOtp() {
       alignItems="center"
       boxSizing="boderBox"
     >
-      <BackAnime />
+      {/* <BackAnime /> */}
       <Flex
         h="60%"
         w="24%"
@@ -95,7 +95,7 @@ export function PaymentOtp() {
               Enter Your OTP
             </Heading>
             {/* ---------Pin INput---------------- */}
-            <PinInputOtp getOtp={getOtp} />
+            {/* <PinInputOtp getOtp={getOtp} /> */}
             <Input
               type="submit"
               value="Confirm Payment"

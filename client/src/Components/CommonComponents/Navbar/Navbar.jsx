@@ -1,51 +1,84 @@
-import React, { useEffect, useRef, useState } from "react";
 import {
-  Flex,
+  AddIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  EditIcon,
+  ExternalLinkIcon,
+  SearchIcon,
+  TriangleDownIcon,
+  TriangleUpIcon,
+} from "@chakra-ui/icons";
+import {
   Box,
   Button,
-  Spacer,
+  Divider,
+  Fade,
+  Flex,
   IconButton,
   Image,
-  Heading,
-  Text,
-  Fade,
-  Center,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  transition,
-  Divider,
   Input,
   InputGroup,
   InputLeftElement,
-  
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuItem,
+  MenuList,
+  Spacer,
+  Text,
+  useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
-import { useDisclosure ,useColorModeValue} from "@chakra-ui/react";
-import {
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  TriangleDownIcon,
-  TriangleUpIcon,
-  ExternalLinkIcon,
-  EditIcon,
-  SearchIcon,
-  AddIcon,
-
-} from "@chakra-ui/icons";
-
-import { FaPowerOff, FaBars } from "react-icons/fa";
-import styles from "./Navbar.module.css";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import PlayListAction from "../../../Redux/SpotifyPlayList/PlayListAction";
+import { useEffect } from "react";
+import React from "react";
+import { useColorMode } from "@chakra-ui/react";
+import { AiFillHeart } from "react-icons/ai";
+import { FaPowerOff } from "react-icons/fa";
 import { HiOutlineHome } from "react-icons/hi";
 import { IoSearchOutline } from "react-icons/io5";
-import { BiLibrary } from "react-icons/bi";
-import { AiFillHeart } from "react-icons/ai";
-import { useColorMode } from '@chakra-ui/react' 
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import PlayListAction from "../../../Redux/SpotifyPlayList/PlayListAction";
+import styles from "./Navbar.module.css";
+import { useState } from "react";
+
 function Navbar({ bgColor }) {
+  const initstate = {
+    name: "Anand",
+    given_name: "RP",
+    picture: "https://picsum.photos/id/237/200/300",
+  };
+
+  const [useDetails, setUseDetails] = useState();
+
+  const getData = async () => {
+    let res = await fetch("http://localhost:3000/getuser");
+    let data = await res.json();
+    // console.log(data);
+    let n = data.length - 1;
+    setUseDetails(data[n]);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const logoutUser = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/deleteuser", {
+        method: "DELETE",
+      });
+      if (!res.ok) {
+        throw new Error("failed to logout");
+      }
+      // const data = await res.json();
+      console.log('user logged out', res);
+      setUseDetails();
+    } catch (err) {
+      console.log("err on logout", err);
+    }
+  };
+
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
   const btnRef = React.useRef();
 
@@ -58,14 +91,13 @@ function Navbar({ bgColor }) {
       dispatch(PlayListAction(search));
     }
   };
-  const useDetails = JSON.parse(localStorage.getItem("userDetail"));
 
   const SearchFlag = localStorage.getItem("SearchFlag");
 
-  const { colorMode, toggleColorMode } = useColorMode()
-  const bg = useColorModeValue('#ffff', '#000000')
-  const color = useColorModeValue('white', '#b3b3b3')
-  function  downloadApp () {
+  const { colorMode, toggleColorMode } = useColorMode();
+  const bg = useColorModeValue("#ffff", "#000000");
+  const color = useColorModeValue("white", "#b3b3b3");
+  function downloadApp() {
     const link = document.createElement("a");
     link.download = "spotifyAppDownload.exe";
     link.href = `https://github.com/AnandRP2030/Spotify-clone/raw/master/src/Components/CommonComponents/Sidebar/assets/spotifyAppDownload.exe`;
@@ -73,7 +105,7 @@ function Navbar({ bgColor }) {
     link.click();
     document.body.removeChild(link);
     console.log("called");
-  };
+  }
   return (
     <>
       <Flex
@@ -86,7 +118,6 @@ function Navbar({ bgColor }) {
         left={["80px", "80px", "175px", "175px", "175px", "175px"]}
         right={"0"}
       >
-       
         {/* //! pagination buttons */}
         <Box display={["none", "none", "none", "flex", "flex"]}>
           <IconButton
@@ -142,8 +173,7 @@ function Navbar({ bgColor }) {
         ) : null}
         <Spacer />
 
-
-        {useDetails != null ? (
+        {useDetails != null ? (  
           <>
             <Link to="/upgrade">
               <Button
@@ -160,19 +190,17 @@ function Navbar({ bgColor }) {
               </Button>
             </Link>
 
-             {/* //! vertical Divider  */}
+            {/* //! vertical Divider  */}
 
-             <Divider
-                orientation="vertical"
-                m={"0 20px"}
-                fontSize="25px"
-                w={"auto"}
-                display={["none", "none", "none", "flex", "flex"]}
-              />
-
+            <Divider
+              orientation="vertical"
+              m={"0 20px"}
+              fontSize="25px"
+              w={"auto"}
+              display={["none", "none", "none", "flex", "flex"]}
+            />
 
             <Flex
-           
               justify={"space-between"}
               align={"center"}
               bg="black"
@@ -180,16 +208,17 @@ function Navbar({ bgColor }) {
               h={"45px"}
               w={"xsm"}
             >
-              <Image className={styles.image}
+              <Image
+                className={styles.image}
                 borderRadius="full"
                 boxSize="40px"
-                src={useDetails[0].picture}
-                alt={useDetails[0].name}
+                src={useDetails.picture}
+                alt={useDetails.name}
                 onMouseOver={onToggle}
                 onMouseOut={onToggle}
                 onClick={onOpen}
                 mr="15px"
-                _hover={{boxSize:"41px"}}
+                _hover={{ boxSize: "41px" }}
               />
               <Text
                 variant={"unstyled"}
@@ -197,7 +226,7 @@ function Navbar({ bgColor }) {
                 mr={1}
                 display={["none", "none", "flex", "flex", "flex"]}
               >
-                {useDetails[0].name}
+                {useDetails.name}
               </Text>
 
               <Box>
@@ -216,27 +245,30 @@ function Navbar({ bgColor }) {
                           isOpen ? <TriangleUpIcon /> : <TriangleDownIcon />
                         }
                       />
-                      
-                      <MenuList w="xsm" bg={"black"}>
 
-                      <MenuItem
+                      <MenuList w="xsm" bg={"black"}>
+                        <MenuItem
                           icon={<ExternalLinkIcon boxSize={5} />}
                           bg="black"
-                          onClick={()=>{navigate('/account')}}
+                          onClick={() => {
+                            navigate("/account");
+                          }}
                         >
                           {" "}
                           Account
                         </MenuItem>
-                        
-                      <MenuItem icon={<EditIcon boxSize={5} />} bg="black">
+
+                        <MenuItem icon={<EditIcon boxSize={5} />} bg="black">
                           {" "}
                           Profile
                         </MenuItem>
 
-                      <MenuItem
+                        <MenuItem
                           icon={<HiOutlineHome size={21} />}
                           bg="black"
-                          onClick={()=>{navigate('/')}}
+                          onClick={() => {
+                            navigate("/");
+                          }}
                         >
                           Home
                         </MenuItem>
@@ -244,7 +276,9 @@ function Navbar({ bgColor }) {
                         <MenuItem
                           icon={<IoSearchOutline size={21} />}
                           bg="black"
-                          onClick={()=>{navigate('/search')}}
+                          onClick={() => {
+                            navigate("/search");
+                          }}
                         >
                           Search
                         </MenuItem>
@@ -252,14 +286,18 @@ function Navbar({ bgColor }) {
                         <MenuItem
                           icon={<AddIcon boxSize={5} />}
                           bg="black"
-                          onClick={()=>{navigate('/playlist')}}
+                          onClick={() => {
+                            navigate("/playlist");
+                          }}
                         >
                           Create Playlist
                         </MenuItem>
                         <MenuItem
                           icon={<AiFillHeart fontSize={21} />}
                           bg="black"
-                          onClick={()=>{navigate('/like')}}
+                          onClick={() => {
+                            navigate("/like");
+                          }}
                         >
                           {" "}
                           Liked Songs
@@ -267,12 +305,14 @@ function Navbar({ bgColor }) {
                         <MenuItem
                           icon={<ExternalLinkIcon boxSize={5} />}
                           bg="black"
-                          onClick={()=>{navigate('/upgrade')}}
+                          onClick={() => {
+                            navigate("/upgrade");
+                          }}
                         >
                           {" "}
                           Upgrade to Premium
                         </MenuItem>
-                       
+
                         {/* <MenuItem
                           icon={<ExternalLinkIcon boxSize={5} />}
                           bg="black"
@@ -285,8 +325,8 @@ function Navbar({ bgColor }) {
                           icon={<FaPowerOff size={18} />}
                           bg="black"
                           onClick={() => {
-                            dispatch({type:"LOGOUT_USER"})
-                            localStorage.removeItem("userDetail");
+                            dispatch({ type: "LOGOUT_USER" });
+                            logoutUser();
                             navigate("/");
                           }}
                         >
@@ -304,7 +344,7 @@ function Navbar({ bgColor }) {
                   mt={"100px"}
                   ml="-110px"
                 >
-                  {useDetails[0].given_name}
+                  {useDetails.given_name}
                 </Button>
               </Fade>
             </Flex>
@@ -327,7 +367,10 @@ function Navbar({ bgColor }) {
                 </Button>
               </Link>
 
-              <a target={'_blank'} href="https://medium.com/@rutujadhekolkar97/spotify-clone-using-react-js-and-chakra-ui-ca9f0dfee88f"   >
+              <a
+                target={"_blank"}
+                href="https://medium.com/@rutujadhekolkar97/spotify-clone-using-react-js-and-chakra-ui-ca9f0dfee88f"
+              >
                 <Button
                   className={styles.navButtons}
                   variant={"unstyled"}
@@ -350,7 +393,9 @@ function Navbar({ bgColor }) {
                   borderRadius="25px"
                   w="95px"
                   display={["none", "none", "none", "flex", "flex"]}
-                  onClick={() => {downloadApp()}}
+                  onClick={() => {
+                    downloadApp();
+                  }}
                 >
                   Download
                 </Button>
@@ -397,7 +442,6 @@ function Navbar({ bgColor }) {
           </>
         )}
       </Flex>
-      
     </>
   );
 }
