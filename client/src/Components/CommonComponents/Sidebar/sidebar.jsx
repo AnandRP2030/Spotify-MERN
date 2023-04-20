@@ -10,11 +10,12 @@ import { FaSpotify } from "react-icons/fa";
 import { useToast } from "@chakra-ui/react";
 
 const Sidebar = () => {
+  const BASE_URL = import.meta.env.VITE_HOME_URL
   const navigate = useNavigate();
   const toast = useToast();
 
   const redirectLikedpage = async () => {
-    let res = await fetch("http://localhost:3000/getuser");
+    let res = await fetch(`${BASE_URL}/getuser`);
     let data = await res.json();
 
     if (data.length > 0) {

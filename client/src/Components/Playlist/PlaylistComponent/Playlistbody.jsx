@@ -128,7 +128,8 @@ const PlaylistBody = () => {
  const toast = useToast();
   const createPlaylist = async () => {
 
-    let res = await fetch("http://localhost:3000/getuser");
+    let BASE_URL = import.meta.env.VITE_HOME_URL;
+    let res = await fetch(`${BASE_URL}/getuser`);
     let data = await res.json();
 
     if (data.length > 0) {

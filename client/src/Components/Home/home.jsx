@@ -18,26 +18,7 @@ const Home = () => {
     songName: "",
     singer: "",
   });
- 
-  // const getData = async () => {
-  //   try{
-  //     let res = await fetch('http://localhost:3000/googleRedirect');
-  //     let data = await res.json();
-  //     // console.log(data);
-  //     return data;
-  //   }catch(err) {
-  //       console.log('err on navbar getdata', err)
-  //   }
-  // }
 
-  // const fetchData = async () => {
-  //   let x = await getData();
-  //   console.log(x)
-  // }
-  // useEffect( () => {
-
-  //   fetchData()
-  // },[])
 
   return (
     <>

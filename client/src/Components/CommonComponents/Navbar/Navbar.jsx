@@ -43,16 +43,14 @@ import styles from "./Navbar.module.css";
 import { useState } from "react";
 
 function Navbar({ bgColor }) {
-  const initstate = {
-    name: "Anand",
-    given_name: "RP",
-    picture: "https://picsum.photos/id/237/200/300",
-  };
+ 
 
+  const BASE_SERVER = import.meta.env.VITE_HOME_URL;
+  console.log('=> base ',BASE_SERVER)
   const [useDetails, setUseDetails] = useState();
 
   const getData = async () => {
-    let res = await fetch("http://localhost:3000/getuser");
+    let res = await fetch(`${BASE_SERVER}/getuser`);
     let data = await res.json();
     // console.log(data);
     let n = data.length - 1;
@@ -65,7 +63,7 @@ function Navbar({ bgColor }) {
 
   const logoutUser = async () => {
     try {
-      const res = await fetch("http://localhost:3000/deleteuser", {
+      const res = await fetch(`${BASE_URL}/deleteuser`, {
         method: "DELETE",
       });
       if (!res.ok) {

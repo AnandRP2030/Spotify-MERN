@@ -65,7 +65,8 @@ const Signup = () => {
   }, []);
 
 
-  const AUTH_GOOGLE = 'http://localhost:3000/auth/google';
+  const AUTH_GOOGLE = `${import.meta.env.VITE_HOME_URL}/auth/google`;
+  console.log('=> gfg ',AUTH_GOOGLE)
 
 
   return (

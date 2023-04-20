@@ -52,6 +52,8 @@ const Login = () => {
     setRealImg({ img: formImages[helper], count: helper + 1 });
   };
 
+  const AUTH_GOOGLE = `${import.meta.env.VITE_HOME_URL}/auth/google`;
+
   useEffect(() => {
     let intervalId = setInterval(changeImg, 10000);
 
@@ -95,7 +97,7 @@ const Login = () => {
             <VStack w="100%" mt="20px" p={1}>
               <Link
                 color="teal.500"
-                href="http://localhost:3000/auth/google"
+                href={AUTH_GOOGLE}
                 w="100%"
                 bg="white"
               >
