@@ -99,14 +99,14 @@ app.get(
       const existUser = await SpotifyModel.findOne({ email: user.email });
       if (existUser) {
         console.log("User already exist");
-      
-        res.redirect("http://localhost:5173/login");
+        const loggUser = await SpotifyLogged.create(user);
+        // res.redirect("http://localhost:5173/login");
         // console.log(req.user);
-        // res.redirect("http://localhost:5173");
+        res.redirect("http://localhost:5173");
       } else {
         const newUser = await SpotifyModel.create(user);
         const loggUser = await SpotifyLogged.create(user);
-        
+
         console.log("new user created ", newUser);
         let token = jwt.sign(
           {

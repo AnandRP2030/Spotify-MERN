@@ -3,7 +3,7 @@ import { Box } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useState } from "react";
-
+import { useToast, Center } from "@chakra-ui/react";
 import {
   Modal,
   ModalOverlay,
@@ -19,7 +19,6 @@ import {
   FormControl,
   Icon,
   Grid,
-  Center,
 } from "@chakra-ui/react";
 
 import PlaylistCard from "./PlaylistCard";
@@ -126,10 +125,29 @@ const PlaylistBody = () => {
     description: "",
     img: "",
   });
+ const toast = useToast();
+  const createPlaylist = async () => {
 
-  const createPlaylist = () => {
-    setPlaylistArr([userInput, ...playlistArr]);
-    setInc(inc+1)
+    let res = await fetch("http://localhost:3000/getuser");
+    let data = await res.json();
+
+    if (data.length > 0) {
+      setPlaylistArr([userInput, ...playlistArr]);
+      setInc(inc+1)
+    } else {
+      toast({
+        position: "top-center",
+
+        duration: 2000,
+        render: () => (
+          <Center color="white" p={3} bg="#676767">
+            Please Loggin first.. 
+          </Center>
+        ),
+      });
+    }
+
+   
   };
 
   const[inc, setInc] = useState(0);
@@ -143,7 +161,9 @@ const PlaylistBody = () => {
       bgGradient="linear(to-l, #5c96b2, #000001)"
     >
       <Box pos="relative" w="auto" left="20%">
-        <Button h="150px" w="150px" onClick={onOpen} bgColor="#d4d5cb">
+        <Button h="150px" w="150px" onClick={() => {
+          onOpen()
+        }} bgColor="#d4d5cb">
           <Icon boxSize={8} as={AiOutlinePlus} />
         </Button>
         <Text mt="20px" fontSize="2xl" color="#d4d5cb">
@@ -205,7 +225,9 @@ const PlaylistBody = () => {
             </ModalBody>
 
             <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={createPlaylist}>
+              <Button colorScheme="blue" mr={3} onClick={() => {
+                createPlaylist()
+              }}>
                 Create
               </Button>
               <Button onClick={onClose}>Cancel</Button>

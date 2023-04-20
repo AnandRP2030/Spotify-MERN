@@ -7,8 +7,32 @@ import { BiLibrary } from "react-icons/bi";
 import style from "./sidebar.module.css";
 import { FiDownload } from "react-icons/fi";
 import { FaSpotify } from "react-icons/fa";
+import { useToast } from "@chakra-ui/react";
+
 const Sidebar = () => {
   const navigate = useNavigate();
+  const toast = useToast();
+
+  const redirectLikedpage = async () => {
+    let res = await fetch("http://localhost:3000/getuser");
+    let data = await res.json();
+
+    if (data.length > 0) {
+      navigate("/like");
+    } else {
+      toast({
+        position: "top-center",
+
+        duration: 2000,
+        render: () => (
+          <Center color="white" p={3} bg="#676767">
+            Please Loggin first.. 
+          </Center>
+        ),
+      });
+    }
+  };
+
   const downloadApp = () => {
     const link = document.createElement("a");
     link.download = "spotifyAppDownload.exe";
@@ -125,16 +149,17 @@ const Sidebar = () => {
               alt="icon"
             />
           </Link>
-          <Link to="/like">
-            <Text
-              ml="13px"
-              color="#b3b3b3"
-              display={["none", "none", "block", "block", "block"]}
-            >
-              {" "}
-              Liked Songs
-            </Text>
-          </Link>
+          {/* <Link  > */}
+          <Text
+            onClick={() => redirectLikedpage()}
+            ml="13px"
+            color="#b3b3b3"
+            display={["none", "none", "block", "block", "block"]}
+          >
+            {" "}
+            Liked Songs
+          </Text>
+          {/* </Link> */}
         </Flex>
         <Flex mt="20px" className={style.hoverText}>
           <img
