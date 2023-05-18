@@ -3,7 +3,7 @@
 
   <h1>Spotify Clone   <a href="https://spotify-clone4me.netlify.app/"> Live </a> </h1>
 
-  <p> This is a part of a previous collaborative project, a <a href="https://github.com/AnandRP2030/Spotify-clone">Spotify-clone</a> built by a team of four members, including myself. Initially, we only created the frontend. However, in this project, I connected the frontend with the backend using Express, MongoDB, and Node.js. The end result is a full-stack web application that mimics some of the basic functionalities of Spotify, such as playing songs, adding songs to favorites, creating playlists, and searching for songs..</p>
+  <p> This is a part of a previous collaborative project,  built by a team of four members, including myself. Initially, we only created the frontend. However, in this project, I connected the frontend with the backend using Express, MongoDB, and Node.js. The end result is a full-stack web application that mimics some of the basic functionalities of Spotify, such as playing songs, adding songs to favorites, creating playlists, and searching for songs..</p>
   
   <h2>Technologies Used</h2>
   <ul>
